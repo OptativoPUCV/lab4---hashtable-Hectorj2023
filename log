@@ -2,3 +2,29 @@ Wed 12 Apr 2023 11:00:24 PM UTC:
  tests:  0|6
 total_score: 0/70
 343947d
+Wed 12 Apr 2023 11:05:44 PM UTC: 
+ hashmap.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:60:21: error: ‘HashNode’ undeclared (first use in this function)
+   60 |     map->buckets = (HashNode**)calloc(capacity, sizeof(HashNode*));
+      |                     ^~~~~~~~
+hashmap.c:60:21: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:60:31: error: expected expression before ‘)’ token
+   60 |     map->buckets = (HashNode**)calloc(capacity, sizeof(HashNode*));
+      |                               ^
+hashmap.c:68:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘hash’
+   68 |     map->hash = defaultHash;
+      |        ^~
+hashmap.c:68:17: error: ‘defaultHash’ undeclared (first use in this function)
+   68 |     map->hash = defaultHash;
+      |                 ^~~~~~~~~~~
+hashmap.c:69:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘compare’
+   69 |     map->compare = defaultCompare;
+      |        ^~
+hashmap.c:69:20: error: ‘defaultCompare’ undeclared (first use in this function)
+   69 |     map->compare = defaultCompare;
+      |                    ^~~~~~~~~~~~~~
+Compilation failed
+5d62ff8
