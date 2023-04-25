@@ -236,3 +236,20 @@ Tue 25 Apr 2023 09:51:04 PM UTC:
  tests:  14|1
 total_score: 60/70
 4b85e11
+Tue 25 Apr 2023 09:53:07 PM UTC: 
+ hashmap.c | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+In file included from test.c:4:
+hashmap.c: In function ‘eraseMap’:
+hashmap.c:120:3: error: unknown type name ‘bool’
+  120 |   bool found = false;
+      |   ^~~~
+hashmap.c:120:16: error: ‘false’ undeclared (first use in this function)
+  120 |   bool found = false;
+      |                ^~~~~
+hashmap.c:120:16: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:125:13: error: ‘true’ undeclared (first use in this function)
+  125 |     found = true;
+      |             ^~~~
+Compilation failed
+191d58a

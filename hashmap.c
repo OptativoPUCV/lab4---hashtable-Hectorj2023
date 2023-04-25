@@ -116,6 +116,31 @@ HashMap * createMap(long capacity) {
 
 void eraseMap(HashMap * map,  char * key) {    
 
+  long pos = hash(key, map->capacity);
+  bool found = false;
+
+  if(is_equal(key, (*(map->buckets+pos))->key)){
+    map->current =  pos;
+    (*(map->buckets+pos))->key = NULL;
+    found = true;
+  }else{
+
+    for(long i = 0, it = pos+1; i < map->capacity; i++, it++){
+      it = it%map->capacity;
+
+      if(*(map->buckets+it) ==  NULL) continue;
+      
+      if(is_equal(key, (*(map->buckets+it))->key)){
+        map->current = it;
+        (*(map->buckets+it))->key = NULL;
+        found = true;
+        break;
+      }
+    }
+    
+  }
+
+  if(found && map->size > 0) map->size--;
 
 }
 
