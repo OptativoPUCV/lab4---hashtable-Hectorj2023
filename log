@@ -28,3 +28,14 @@ hashmap.c:69:20: error: ‘defaultCompare’ undeclared (first use in this funct
       |                    ^~~~~~~~~~~~~~
 Compilation failed
 5d62ff8
+Tue 25 Apr 2023 09:11:44 PM UTC: 
+ hashmap.c | 17 -----------------
+ 1 file changed, 17 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:56:1: error: control reaches end of non-void function [-Werror=return-type]
+   56 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+2c7aee1
