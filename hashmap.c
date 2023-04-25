@@ -40,7 +40,25 @@ int is_equal(void* key1, void* key2){
 
 
 void insertMap(HashMap * map, char * key, void * value) {
+int position = hashFunction(key) % map->capacity;
 
+  
+    while (map->data[position].key != NULL && strcmp(map->data[position].key, key) != 0) {
+        position = (position + 1) % map->capacity;
+    }
+
+
+    if (strcmp(map->data[position].key, key) == 0) {
+        return;
+    }
+
+
+    map->data[position].key = key;
+    map->data[position].value = value;
+    map->size++;
+
+
+    map->current = position;
 
 }
 
