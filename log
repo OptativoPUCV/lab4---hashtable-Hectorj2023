@@ -296,3 +296,15 @@ hashmap.c:148:1: error: expected identifier or ‘(’ before ‘}’ token
 cc1: all warnings being treated as errors
 Compilation failed
 33a491a
+Tue 25 Apr 2023 09:57:13 PM UTC: 
+ hashmap.c | 13 ++++---------
+ 1 file changed, 4 insertions(+), 9 deletions(-)
+In file included from test.c:4:
+hashmap.c:140:3: error: expected identifier or ‘(’ before ‘if’
+  140 |   if(found && map->size > 0) map->size--;
+      |   ^~
+hashmap.c:142:1: error: expected identifier or ‘(’ before ‘}’ token
+  142 | }
+      | ^
+Compilation failed
+d51b2d6
