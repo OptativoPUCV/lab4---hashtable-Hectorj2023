@@ -253,3 +253,13 @@ hashmap.c:125:13: error: ‘true’ undeclared (first use in this function)
       |             ^~~~
 Compilation failed
 191d58a
+Tue 25 Apr 2023 09:54:00 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c:7:10: fatal error: stdbool. h: No such file or directory
+    7 | #include <stdbool. h>
+      |          ^~~~~~~~~~~~
+compilation terminated.
+Compilation failed
+84fa84d
