@@ -77,3 +77,42 @@ hashmap.c:57:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member na
 cc1: all warnings being treated as errors
 Compilation failed
 18d9969
+Tue 25 Apr 2023 09:38:53 PM UTC: 
+ hashmap.c | 29 ++++++++++++++++-------------
+ 1 file changed, 16 insertions(+), 13 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:45:3: error: unknown type name ‘Node’
+   45 |   Node* curr_node = *(map->buckets + hash_value);
+      |   ^~~~
+hashmap.c:45:21: error: initialization of ‘int *’ from incompatible pointer type ‘Pair *’ [-Werror=incompatible-pointer-types]
+   45 |   Node* curr_node = *(map->buckets + hash_value);
+      |                     ^
+hashmap.c:46:3: error: unknown type name ‘Node’
+   46 |   Node* prev_node = NULL;
+      |   ^~~~
+hashmap.c:49:24: error: request for member ‘pair’ in something not a structure or union
+   49 |     if(strcmp(curr_node->pair->key,key)== 0){
+      |                        ^~
+hashmap.c:50:16: error: request for member ‘pair’ in something not a structure or union
+   50 |       curr_node->pair->value = value;
+      |                ^~
+hashmap.c:54:26: error: request for member ‘next’ in something not a structure or union
+   54 |     curr_node = curr_node->next;
+      |                          ^~
+hashmap.c:59:3: error: unknown type name ‘Node’
+   59 |   Node* new_node = createNode(new_pair);
+      |   ^~~~
+hashmap.c:59:20: error: implicit declaration of function ‘createNode’ [-Werror=implicit-function-declaration]
+   59 |   Node* new_node = createNode(new_pair);
+      |                    ^~~~~~~~~~
+hashmap.c:59:20: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+hashmap.c:61:34: error: assignment to ‘Pair *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+   61 |     *(map->buckets + hash_value) = new_node;
+      |                                  ^
+hashmap.c:63:14: error: request for member ‘next’ in something not a structure or union
+   63 |     prev_node->next = new_node;
+      |              ^~
+cc1: all warnings being treated as errors
+Compilation failed
+6497060
