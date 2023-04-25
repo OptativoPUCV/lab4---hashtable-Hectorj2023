@@ -45,3 +45,9 @@ Tue 25 Apr 2023 09:12:20 PM UTC:
  tests:  0|6
 total_score: 0/70
 9ced627
+Tue 25 Apr 2023 09:21:21 PM UTC: 
+ hashmap.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+ tests:  1|5
+total_score: 10/70
+aed8832
