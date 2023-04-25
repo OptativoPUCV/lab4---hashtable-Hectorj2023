@@ -41,7 +41,7 @@ int is_equal(void* key1, void* key2){
 
 void insertMap(HashMap * map, char * key, void * value) {
   
-  int hash_value = hash(key, map->capacity);
+  long hash_value = hash(key, map->capacity);
   Node* curr_node = *(map->buckets + hash_value);
   Node* prev_node = NULL;
 
