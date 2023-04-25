@@ -40,28 +40,34 @@ int is_equal(void* key1, void* key2){
 
 
 void insertMap(HashMap * map, char * key, void * value) {
-  
-  long hash_value = hash(key, map->capacity);
-  node* curr_node = *(map->buckets + hash_value);
-  Node* prev_node = NULL;
+ long posicion = hash(key, map->capacity);
 
-  while(curr_node != NULL){
-    if(strcmp(curr_node->pair->key,key)== 0){
-      curr_node->pair->value = value;
-      return;
+  if( *(map->buckets+posicion) == NULL){
+
+    *(map->buckets+posicion) = createPair(key, value);
+    
+  }else{
+    
+    for(long i = 0, it = posicion+1; i < map->capacity; i++, it++){
+      it = it%map->capacity;
+      
+      if(*(map->buckets+it) ==  NULL){
+          
+        *(map->buckets+it) = createPair(key, value);
+        
+        break;
+        
+      } else if((*(map->buckets+it))->key == NULL){
+          
+        *(map->buckets+it) = createPair(key, value);
+        
+        break;
+      }
+      
     }
-    prev_node = curr_node;
-    curr_node = curr_node->next;
     
   }
-
-  Pair* new_pair = createPair(key,value);
-  Node* new_node = createNode(new_pair);
-  if (prev_node==NULL){
-    *(map->buckets + hash_value) = new_node;
-  }else{
-    prev_node->next = new_node;
-  }
+  
   map->size++;
 }
 

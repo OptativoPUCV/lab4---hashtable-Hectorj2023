@@ -194,3 +194,9 @@ hashmap.c:63:14: error: request for member ‘next’ in something not a structu
 cc1: all warnings being treated as errors
 Compilation failed
 cd836b2
+Tue 25 Apr 2023 09:41:58 PM UTC: 
+ hashmap.c | 36 +++++++++++++++++++++---------------
+ 1 file changed, 21 insertions(+), 15 deletions(-)
+ tests:  5|4
+total_score: 30/70
+b675541
