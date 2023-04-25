@@ -115,7 +115,30 @@ HashMap * createMap(long capacity) {
 }
 
 void eraseMap(HashMap * map,  char * key) {    
-
+  long posicion = hash(key, map->capacity);
+    if (*(map->buckets+posicion) != NULL && (*(map->buckets+posicion))->key != NULL) {
+        if (is_equal((*(map->buckets+posicion))->key, key)) {
+            free((*(map->buckets+posicion))->key);
+            free((*(map->buckets+posicion))->value);
+            free(*(map->buckets+posicion));
+            *(map->buckets+posicion) = NULL;
+            map->size--;
+        } else {
+            for (long i = 1; i < map->capacity; i++) {
+                long it = (posicion+i) % map->capacity;
+                if (*(map->buckets+it) == NULL || (*(map->buckets+it))->key == NULL) {
+                    break;
+                } else if (is_equal((*(map->buckets+it))->key, key)) {
+                    free((*(map->buckets+it))->key);
+                    free((*(map->buckets+it))->value);
+                    free(*(map->buckets+it));
+                    *(map->buckets+it) = NULL;
+                    map->size--;
+                    break;
+                }
+            }
+        }
+    }
 
 }
 
